@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+  --font-sans: var(--font-instrument);
+  --font-serif: var(--font-dm-serif);
+  --font-mono: var(--font-jb-mono);
+}
+
+:root {
+  --background: #f4f3ee;
+  --foreground: #141921;
+  --card: #ffffff;
+  --card-foreground: #141921;
+  --primary: #1a2744;
+  --primary-foreground: #f4f3ee;
+  --secondary: #e8e6df;
+  --secondary-foreground: #1a2744;
+  --muted: #edecea;
+  --muted-foreground: #6b7280;
+  --accent: #c8952a;
+  --accent-foreground: #ffffff;
+  --border: #dedad2;
+  --ring: #1a2744;
+  --radius: 4px;
+  --font-instrument: 'Instrument Sans', system-ui, sans-serif;
+  --font-dm-serif: 'DM Serif Display', Georgia, serif;
+  --font-jb-mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+.dark {
+  --background: #0f1520;
+  --foreground: #f0eeea;
+  --card: #1a2236;
+  --card-foreground: #f0eeea;
+  --primary: #c8952a;
+  --primary-foreground: #0f1520;
+  --secondary: #243050;
+  --secondary-foreground: #f0eeea;
+  --muted: #1e2a40;
+  --muted-foreground: #9ca3af;
+  --accent: #d4a843;
+  --accent-foreground: #0f1520;
+  --border: #2a3550;
+  --ring: #c8952a;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-instrument);
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+.font-serif { font-family: var(--font-dm-serif); }
+.font-mono { font-family: var(--font-jb-mono); }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-fade-in { animation: fadeIn 0.3s ease both; }
+.animate-slide-in { animation: slideIn 0.25s ease both; }
+.animate-toast-in { animation: toastIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+
+.skeleton {
+  background: linear-gradient(90deg, var(--muted) 25%, var(--secondary) 50%, var(--muted) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
